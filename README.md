@@ -12,9 +12,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 What things you need to install the software:
- - ```Python2.7 ```: to install ```Python2.7 ``` follow the instructions [here]()
- - packages:
-   -
+ - ```Python2.7 ```: to install ```Python2.7 ``` follow the instructions [here](https://www.python.org/downloads/release)
 
 ### Instructions
 
@@ -40,18 +38,25 @@ Explain how to run the automated tests for this system
 
 ## Contributing
 
-<!---Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.--->
+<!---
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+--->
 
 ## Authors
 
-* **Serena Vinciguerra** <!--- - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)--->
+* **Serena Vinciguerra**  
+<!---
+(*Initial work* - [PurpleBooth](https://github.com/PurpleBooth))
+--->
 * **Marica Branchesi** 
 * **Riccardo Ciolfi** 
 * **Ilya Mandel** 
 * **Coenraad Neijssel**
 * **Giulia Stratta**
 
+<!---
 See also the list of [contributors](https://github.com/contributors) who participated in this project.
+--->
 
 ## License and Citation
 
@@ -72,7 +77,7 @@ We encourage use of these data in derivative works. If you use the material prov
 ## Acknowledgments
 The authors thank L. Amati for his assistance with the case of THESEUS and for the useful comments.
 We thank A. Belfiore, A. De Luca, M.Marelli, D. Salvietti and  A. Tiengo for the help in understanding and interpreting XMM-Newton data. We thank R. Salvaterra for the useful suggestions and discussions. 
-The research leading to these results has received funding from the People Programme (Marie Curie Actions) of the European Union's Seventh Framework Programme FP7/2007-2013/ (PEOPLE-2013-ITN) under REA grant agreement no.~[606176]. This paper reflects only the authors' view and the European Union is not liable for any use that may be made of the information contained therein.
+The research leading to these results has received funding from the People Programme (Marie Curie Actions) of the European Union's Seventh Framework Programme FP7/2007-2013/ (PEOPLE-2013-ITN) under REA grant agreement no.\~[606176]. This paper reflects only the authors' view and the European Union is not liable for any use that may be made of the information contained therein.
 G.S. acknowledges EGO support through a VESF fellowship (EGO-DIR-133-2015).
-This research has made use of data obtained from XMMSL2, the Second XMM-Newton Slew Survey Catalogue, produced by members of the XMM SOC, the EPIC consortium, and using work carried out in the context of the EXTraS project ("Exploring the X-ray Transient and variable Sky", funded from the EU's Seventh Framework Programme under grant agreement no.~[607452]).
+This research has made use of data obtained from XMMSL2, the Second XMM-Newton Slew Survey Catalogue, produced by members of the XMM SOC, the EPIC consortium, and using work carried out in the context of the EXTraS project ("Exploring the X-ray Transient and variable Sky", funded from the EU's Seventh Framework Programme under grant agreement no.\~[607452]).
 This research has made use of data obtained from the 3XMM XMM-Newton serendipitous source catalogue compiled by the 10 institutes of the XMM-Newton Survey Science Centre selected by ESA.
