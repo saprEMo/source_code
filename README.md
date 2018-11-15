@@ -2,8 +2,12 @@
 
 Here we present *saprEMo*.
 *saprEMo* is a Python algorithm designed to predict the number of electromagnetic signals characterised by a specific light curve and spectrum, expected in a particular sky survey.  
-By looking at past surveys, saprEMo allows us to constrain models of electromagnetic emission or event rates. Applying saprEMo to proposed astronomical missions/observing campaigns provides a perspective on their scientific impact and tests the effect of adopting different observational strategies. 
+By looking at past surveys, saprEMo allows us to constrain models of electromagnetic emission or event rates. Applying saprEMo to proposed astronomical missions/observing campaigns provides a perspective on their scientific impact and tests the effect of adopting different observational strategies. <br>
 More details can be found in the relative paper at [arXiv:1809.08641](https://arxiv.org/pdf/1809.08641.pdf).
+
+Contacts:<br>
+*saprEMo.tool@gmail.com*<br>
+*serena.vinciguerra@aei.mpg.de*
 
 ## Getting Started
 
