@@ -16,26 +16,85 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 What things you need to install the software:
- - ```Python2.7 ```: to install ```Python2.7 ``` follow the instructions [here](https://www.python.org/downloads/release)
+ - ```Python2.7 ```: to install ```Python2.7 ``` follow the instructions [here](https://www.python.org/downloads/release)<br>
+ 
+required standard packges:<br>
+ - numpy, scipy, csv, sys, os <br>
+  
+  
+required *other* packages:<br>
+ - astropy<br>
+ 
+To install packages with pip run the following ```pip install name_package```<br>
+For further information click [here](https://packaging.python.org/tutorials/installing-packages/)
+### Abbreviations
+z : redshift
+LC : Light Curve
+BNS : binary neutron stars
 
 ### Instructions
 
-A step by step series of examples that tell you how to get a development env running
+A step by step series of examples that tell you how to get a development env running.<br>
+The main running file "runTOOL.py" requires an input set file "*INJ_FILES/name_run.txt*" and the input data stored in the directory "*TEMP/name_run/*".
+You can create both of them using the file "makeINFILE.py".
 
-Say what the step will be
+**BUILDING ENVIRONMENT**
+```
+saprEMo_PATH="/your_PATH" # change "your_PATH" with the path where you want to run saprEMo
+cd $saprEMo_PATH
+mkdir saprEMo
+cd saprEMo
+mkdir RUN
+cd RUN
+mkdir INJ_FILES TEMP LIBRARY OUTOUTS
+cd ..
+```
+The following lines are needed only if the input file is created with "makeINFILE.py"
+```########### needed to create input file with ** , but not for running
+mkdir INPUTS 
+cd INPUTS
+```
+if you want to add your own input data and still be able to run "makeINFILE.py", make sure to have the following structure:
+```
+mkdir Absorption	RATEmodels	SURVEYprop LightCurves	zDATA_file #1 directory for each input
+mkdir z_CV_TABLES # tables redshift z - Comoving volume [cm^{3}] - having premade tables speed up the analysis
+mkdir zDATA_file # put here non uniform pre-made z steps (e.g. from rate models)
+cd ..
 
 ```
-Give the example
-```
-
-And repeat
+Alternatively you can download the entire *INPUTS* directory from the git.
 
 ```
-until finished
+cd
+mv Downloads/INPUTS $saprEMo_PATH/.
+###########
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+To build the *input file* and *input dir* from the data, download the file *makeINFILE.py*, move it to the *RUN* directory, run it and follow the instructions.
 
+```
+cd
+mv Downloads/makeINFILE.py $saprEMo_PATH/RUN/.
+cd $saprEMo_PATH/RUN/
+python makeINFILE.py name_run # substitute "name_run" with the name you like
+
+```
+**MODIFYING INPUT FILE and DIRECTLY RUN**
+```
+mkdir saprEMo_RUN
+cd saprEMo_RUN
+mkdir INJ_FILES TEMP LIBRARY OUTOUTS # 
+```
+When you run the "runTOOL.py" script this is what you need to have:
+```
+INJ_FILES/name_run.txt
+TEMP/name_run/Energies_*LC_model*_LC.txt	# e.g "TEMP/name_run/Energies_Siegel_Ciolfi_2016_stableNS_LC.txt" in this txt there should be the average energy correspondent to the available light curves. E.g. if you have a single light curve obtained integrating the emission between 1keV and 5keV, the file should contain only the number 3.0 
+TEMP/name_run/LC_*LC_model*.txt	 # e.g. "TEMP/name_run/LC_Siegel_Ciolfi_2016_funcE_stableNS.txt" in this txt there should be the light curves correpondent to the energy file described above. If interested in considering absortion at the HOST GALAXY, the LCs here should already be multiplied by the transmission coefficient (Done while creating input file, if done by using "makeINFILE.py").
+TEMP/name_run/RATE_*rate_model*_cm3_sm1.txt # e.g "TEMP/name_run/RATE_Dominik_et_al_2013_high_nsns_cm3_sm1.txt" where there should be 2 columns: 1 one with z, the second one with rate in [cm^{-3}s^{-1}] 
+TEMP/name_run/Sensitivity.txt # in this txt there should be 3 coulumns: 1st with average energy bin (tested only in [keV]); 2nd with limiting fluxes (tested only with [erg/s/cm^2]); 3rd with lower limit energy bin (tested only in [keV]); 4th with upper limit energy bin (tested only in [keV]).
+TEMP/name_run/LOCAL_ABS_MW.txt	# NOT MANDATORY - this txt should contain the absorption for each sensitivity-instrument energy-band; the file should contain 4 coloumns; the 1st, 3rd and 4th as in the Sensitivity.txt file; the second should contain the transmission coefficient derived from the absorption model for each band: exp^{-N*sigma}(E) where $N$ is the effective H column denisty in [1/cm^2] and sigma the cross section [cm^2]. See paper for more details. 
+TEMP/name_run/VOLUME_table_*step_z*_*cosmology*.txt # e.g. "TEMP/name_run/VOLUME_table_5.00E-04_Om03_H70.txt", here the z-step is of 0.0005; the cosmology chosen is flat with matter density 0.3 with Hubble constant 70 km/s/Mpc 
+```
 ### Running test
 
 Explain how to run the automated tests for this system
