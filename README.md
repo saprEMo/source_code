@@ -13,7 +13,7 @@ Contacts:<br>
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
+## Prerequisites
 
 What things you need to install the software:
  - ```Python2.7 ```: to install ```Python2.7 ``` follow the instructions [here](https://www.python.org/downloads/release)<br>
@@ -27,18 +27,18 @@ required *other* packages:<br>
  
 To install packages with pip run the following ```pip install name_package```<br>
 For further information click [here](https://packaging.python.org/tutorials/installing-packages/)
-### Abbreviations
+## Abbreviations
 z : redshift
 LC : Light Curve
 BNS : binary neutron stars
 
-### Instructions
+## Instructions
 
 A step by step series of examples that tell you how to get a development env running.<br>
 The main running file "runTOOL.py" requires an input set file "*INJ_FILES/name_run.txt*" and the input data stored in the directory "*TEMP/name_run/*".
 You can create both of them using the file "makeINFILE.py".
 
-**BUILDING ENVIRONMENT**
+### BUILDING ENVIRONMENT
 ```
 saprEMo_PATH="/your_PATH" # change "your_PATH" with the path where you want to run saprEMo
 cd $saprEMo_PATH
@@ -62,6 +62,49 @@ mkdir zDATA_file # put here non uniform pre-made z steps (e.g. from rate models)
 cd ..
 
 ```
+
+**WHAT SHOULD BE IN ALL THESE DIRECTORIES?**<br>
+*Absorption*<br>
+This directory should contain 2 sub-directories *MW* and *HOST_GAL*, the first for collecting information on the absorption in the Milky Way, the second for the absorption in the host galaxy. 
+We only tested the Galactic absorption. In *MW*, there can be 2 further sub-directories *FILES* and *NH*. In the directorory *FILES*, add directly txt files with 2 columns: 
+- 1st: center of the energy bin [keV];
+- 2nd: the trasmission coefficient. <br>
+Alternatively the "makeINFILE.py" can create the same file for us given the Hydrogen Column Density, NH and cross sections. In the latter case, files (fit format) containing maps of Galactic of NH should be present in the directory *Absrption/MW/NH*. The uploaded files 'lab.fit'	and 'labh.fit', contain these map. The first contain measured data, the second windowed, more details can be found in [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K).<br>
+
+*RATEmodels*<br>
+This directory should contain the rate models of interest, if data are necessary to build Rate(z) (if analytic formulas already implemented are used, this is not necessary). Specifically it should contains sub-directories indicating the name of the relative model. According to the complexity of the considered model more sub-directories can be present, to allow the use of different sub-cases. If you add your own model and still want to create the input file with *makeINFILE.py*, you should modify the appropriate section in *makeINFILE.py*. 
+The implemented cases, based on Dominik et al 2013 and Ghirlanda et al 2016, follow the instructions appearing while running ```python makeINFILE.py```.
+
+*SURVEYprop*<br>
+This directory should contain all the relevant information of the survey of interest. 
+In particular should contain a sub-directory *SensCURVES*, where txt files on the survey sensitivity should be found.
+This txt files should contain 4 columns:
+- average energy bin, on which is based the flux limit of the second coulumn [keV]
+- sensity in terms of flux limit [erg/s/cm^2]
+- lower limit of the energy bin [keV]
+- upper limit of the energy bin [keV]
+Directly in the *SURVEYprop* dir, there should be a txt file for each survey of interest, containing other general info. 
+In particular these files should contain 3 columns:
+- 1st: labels
+- 2nd: quantity #
+- 3rd: unit of measure.<br>
+Here is an example on how it should look like (all the information here reported are necessary and sufficient, unless specified, for the analysis, after # you find a mini description, which should not be present in the file):
+```
+minE    0.2     keV #lower limit of the entire energy band at which the survey is sensitive
+maxE    12.0    keV #upper limit of the entire energy band at which the survey is sensitive
+nOBS # number of observations (*)
+mean observing time     7.1     s #average time for each exposure
+sigma observing time     2.4    s #standard deviation for each exposure - not necessary
+FoV # Filed of View (*)
+FracSkyArea     0.84 # fraction of sky area (*)
+SensCurve       SURVEYprop/SensCURVES/XMM_SLEW_AvE_Sens_Ehard_Esoft.txt # path to sensitivity curve
+# (*): assuming no overlaps, nOBS x FoV should be the same as FracSkyArea, so you can decide which of the 2 parameter to fill (more details on the reference paper Vinciguerra et al 2018)
+```
+*LightCurves*<br>
+This directory should contain the light curve models of interest. Specifically it should contains sub-directories indicating the name of the relative model. According to the complexity of the considered model more sub-directories can be present, to allow the use of different sub-cases. If you add your own model and still want to create the input file with *makeINFILE.py*, you should modify the appropriate section in *makeINFILE.py*. 
+The final data that should be present are 2 txt files: (i)
+*zDATA_file*<br>
+This directory should contain 
 Alternatively you can download the entire *INPUTS* directory from the git.
 
 ```
