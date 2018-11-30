@@ -28,8 +28,8 @@ required *other* packages:<br>
 To install packages with pip run the following ```pip install name_package```<br>
 For further information click [here](https://packaging.python.org/tutorials/installing-packages/)
 ## Abbreviations
-z : redshift
-LC : Light Curve
+z : redshift<br>
+LC : Light Curve<br>
 BNS : binary neutron stars
 
 ## Instructions
@@ -46,7 +46,7 @@ mkdir saprEMo
 cd saprEMo
 mkdir RUN
 cd RUN
-mkdir INJ_FILES TEMP LIBRARY OUTOUTS
+mkdir INJ_FILES TEMP LIBRARY OUTPUTS
 cd ..
 ```
 The following lines are needed only if the input file is created with "makeINFILE.py"
@@ -63,8 +63,8 @@ cd ..
 
 ```
 
-**WHAT SHOULD BE IN ALL THESE DIRECTORIES?**<br>
-*Absorption*<br>
+#### WHAT SHOULD BE IN ALL THESE DIRECTORIES?
+##### Absorption
 This directory should contain 2 sub-directories *MW* and *HOST_GAL*, the first for collecting information on the absorption in the Milky Way, the second for the absorption in the host galaxy. 
 We only tested the Galactic absorption. In *MW*, there can be 2 further sub-directories *FILES* and *NH*. In the directorory *FILES*, add directly txt files with 2 columns: 
 - 1st: center of the energy bin [keV];
@@ -72,11 +72,11 @@ We only tested the Galactic absorption. In *MW*, there can be 2 further sub-dire
 
 Alternatively the "makeINFILE.py" can create the same file for us given the Hydrogen Column Density, NH and cross sections. In the latter case, files (fit format) containing maps of Galactic of NH should be present in the directory *Absrption/MW/NH*. The uploaded files 'lab.fit'	and 'labh.fit', contain these map. The first contain measured data, the second windowed, more details can be found in [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K).<br>
 
-*RATEmodels*<br>
+##### RATEmodels
 This directory should contain the rate models of interest, if data are necessary to build Rate(z) (if analytic formulas already implemented are used, this is not necessary). Specifically it should contains sub-directories indicating the name of the relative model. According to the complexity of the considered model more sub-directories can be present, to allow the use of different sub-cases. If you add your own model and still want to create the input file with *makeINFILE.py*, you should modify the appropriate section in *makeINFILE.py*. 
 The implemented cases, based on Dominik et al 2013 and Ghirlanda et al 2016, follow the instructions appearing while running ```python makeINFILE.py```.
 
-*SURVEYprop*<br>
+##### SURVEYprop
 This directory should contain all the relevant information of the survey of interest. 
 In particular should contain a sub-directory *SensCURVES*, where txt files on the survey sensitivity should be found.
 This txt files should contain 4 columns:
@@ -104,11 +104,11 @@ SensCurve       SURVEYprop/SensCURVES/XMM_SLEW_AvE_Sens_Ehard_Esoft.txt # path t
 # (*): assuming no overlaps, nOBS x FoV should be the same as FracSkyArea, so you can decide which of the 2 parameter to fill (more details on the reference paper Vinciguerra et al 2018)
 ```
 
-*LightCurves*<br>
+##### LightCurves
 This directory should contain the light curve models of interest. Specifically it should contains sub-directories indicating the name of the relative model. According to the complexity of the considered model more sub-directories can be present, to allow the use of different sub-cases. If you add your own model and still want to create the input file with *makeINFILE.py*, you should modify the appropriate section in *makeINFILE.py*. 
 The final data that should be present are 2 txt files: (i) a file containing a single column, where is reported the average of the energy bins at which the light curves are avaialble; (ii) a file containing the light curves: a column for the LC times and a column for each energy bin. The # of columns -1 (the column correspondent to the times) \[s] of file (ii) should be = to the # of rough of file (i)), one row for each time step at which the emission \[erg/s] is available.
 
-*z_CV_TABLES*<br>
+##### z_CV_TABLES
 This directory should contain txt files which you intend to use for integrating over cosmological distances. These file should have 3 columns:
 - z: redshifts
 - dV: step in comuving volume (V(z_i) - V(z_{i-1})) \[cm^3]
@@ -120,27 +120,47 @@ You can download the entire *INPUTS* directory from the git.
 ```
 cd
 mv Downloads/INPUTS $saprEMo_PATH/.
-###########
-```
 
+```
+#### RUNNING makeINFILE.py
 To build the *input file* and *input dir* from the data, download the file *makeINFILE.py*, move it to the *RUN* directory, run it and follow the instructions.
 
 ```
 cd
-mv Downloads/makeINFILE.py $saprEMo_PATH/RUN/.
-cd $saprEMo_PATH/RUN/
+mv Downloads/runTOOL.py $saprEMo_PATH/saprEMo/RUN/.
+mv Downloads/functions.py $saprEMo_PATH/saprEMo/RUN/LIBRARY/.
+mv Downloads/OBSERVED_DURATIONS_LUMINOSITIESmax.py $saprEMo_PATH/saprEMo/RUN/.
+mv Downloads/makeINFILE.py $saprEMo_PATH/saprEMo/RUN/.
+cd $saprEMo_PATH/saprEMo/RUN/
 python makeINFILE.py name_run # substitute "name_run" with the name you like
 
 ```
-**MODIFYING INPUT FILE and DIRECTLY RUN**
+#### MODIFYING INPUT FILE and DIRECTLY RUN
 ```
+saprEMo_PATH="/your_PATH" # change "your_PATH" with the path where you want to run saprEMo
+cd $saprEMo_PATH
 mkdir saprEMo_RUN
 cd saprEMo_RUN
-mkdir INJ_FILES TEMP LIBRARY OUTOUTS # 
+mkdir INJ_FILES TEMP LIBRARY OUTPUTS
+cd 
+mv Downloads/runTOOL.py $saprEMo_PATH/saprEMo_RUN/.
+mv Downloads/functions.py $saprEMo_PATH/saprEMo_RUN/LIBRARY/.
+mv Downloads/OBSERVED_DURATIONS_LUMINOSITIESmax.py $saprEMo_PATH/saprEMo_RUN/.
+cd $saprEMo_PATH/saprEMo_RUN
 ```
-When you run the "runTOOL.py" script this is what you need to have:
+### RUNNING
+Before runnig "runTOOL.py" check that all the follwoing files exists:
+
+0. the running file: 
+```
+runTOOL.py
+```
+1. the input file (see example to check if it contains all the information needed):
 ```
 INJ_FILES/name_run.txt
+```
+2. data saved in the TEMP directory
+```
 TEMP/name_run/Energies_*LC_model*_LC.txt	# e.g "TEMP/name_run/Energies_Siegel_Ciolfi_2016_stableNS_LC.txt" in this txt there should be the average energy correspondent to the available light curves. E.g. if you have a single light curve obtained integrating the emission between 1keV and 5keV, the file should contain only the number 3.0 
 TEMP/name_run/LC_*LC_model*.txt	 # e.g. "TEMP/name_run/LC_Siegel_Ciolfi_2016_funcE_stableNS.txt" in this txt there should be the light curves correpondent to the energy file described above. If interested in considering absortion at the HOST GALAXY, the LCs here should already be multiplied by the transmission coefficient (Done while creating input file, if done by using "makeINFILE.py").
 TEMP/name_run/RATE_*rate_model*_cm3_sm1.txt # e.g "TEMP/name_run/RATE_Dominik_et_al_2013_high_nsns_cm3_sm1.txt" where there should be 2 columns: 1 one with z, the second one with rate in [cm^{-3}s^{-1}] 
@@ -148,15 +168,24 @@ TEMP/name_run/Sensitivity.txt # in this txt there should be 3 coulumns: 1st with
 TEMP/name_run/LOCAL_ABS_MW.txt	# NOT MANDATORY - this txt should contain the absorption for each sensitivity-instrument energy-band; the file should contain 4 coloumns; the 1st, 3rd and 4th as in the Sensitivity.txt file; the second should contain the transmission coefficient derived from the absorption model for each band: exp^{-N*sigma}(E) where $N$ is the effective H column denisty in [1/cm^2] and sigma the cross section [cm^2]. See paper for more details. 
 TEMP/name_run/VOLUME_table_*step_z*_*cosmology*.txt # e.g. "TEMP/name_run/VOLUME_table_5.00E-04_Om03_H70.txt", here the z-step is of 0.0005; the cosmology chosen is flat with matter density 0.3 with Hubble constant 70 km/s/Mpc 
 ```
-### Running test
+3. the file containing some separated functions:
+```
+LIBRARY/functions.py
+```
+Check also that the *OUTPUTS* directory exists.
+Now finally run:
+```
+python runTOOL.py name_run # name_run correspondent to the name of the input file
+```
+If you are interested in producing also graphs of distributions of event durations and maximum of luminosities, check to have the file "OBSERVED_DURATIONS_LUMINOSITIESmax.py" and run the last output line printed running "runTOOL.py"
+```
+python OBSERVED_DURATIONS_LUMINOSITIESmax.py  [--] # [--]: path to output sub-directory, path to DURATIONS_z.txt, path to LC_times.txt, path to dt_vis_index_zmin.txt, assumed exposure time distribution, average exposure time, standard deviation of of exposure times
 
-Explain how to run the automated tests for this system
+```
 
 ## Contributing
 
-<!---
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
---->
+Please contact the leading author at saprEMo.tool@gmail.com or serena.vinciguerra89@gmail.com.
 
 ## Authors
 
