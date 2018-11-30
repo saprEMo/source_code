@@ -56,7 +56,7 @@ cd INPUTS
 ```
 if you want to add your own input data and still be able to run "makeINFILE.py", make sure to have the following structure:
 ```
-mkdir Absorption	RATEmodels	SURVEYprop LightCurves	zDATA_file #1 directory for each input
+mkdir Absorption	RATEmodels	SURVEYprop LightCurves #1 directory for each input
 mkdir z_CV_TABLES # tables redshift z - Comoving volume [cm^{3}] - having premade tables speed up the analysis
 mkdir zDATA_file # put here non uniform pre-made z steps (e.g. from rate models)
 cd ..
@@ -68,7 +68,8 @@ cd ..
 This directory should contain 2 sub-directories *MW* and *HOST_GAL*, the first for collecting information on the absorption in the Milky Way, the second for the absorption in the host galaxy. 
 We only tested the Galactic absorption. In *MW*, there can be 2 further sub-directories *FILES* and *NH*. In the directorory *FILES*, add directly txt files with 2 columns: 
 - 1st: center of the energy bin [keV];
-- 2nd: the trasmission coefficient. 
+- 2nd: the trasmission coefficient. <br>
+
 Alternatively the "makeINFILE.py" can create the same file for us given the Hydrogen Column Density, NH and cross sections. In the latter case, files (fit format) containing maps of Galactic of NH should be present in the directory *Absrption/MW/NH*. The uploaded files 'lab.fit'	and 'labh.fit', contain these map. The first contain measured data, the second windowed, more details can be found in [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K).<br>
 
 *RATEmodels*<br>
@@ -82,12 +83,14 @@ This txt files should contain 4 columns:
 - average energy bin, on which is based the flux limit of the second coulumn [keV]
 - sensity in terms of flux limit [erg/s/cm^2]
 - lower limit of the energy bin [keV]
-- upper limit of the energy bin [keV]
+- upper limit of the energy bin [keV]<br>
+
 Directly in the *SURVEYprop* dir, there should be a txt file for each survey of interest, containing other general info. 
 In particular these files should contain 3 columns:
 - 1st: labels
 - 2nd: quantity #
 - 3rd: unit of measure.<br>
+
 Here is an example on how it should look like (all the information here reported are necessary and sufficient, unless specified, for the analysis, after # you find a mini description, which should not be present in the file):
 ```
 minE    0.2     keV #lower limit of the entire energy band at which the survey is sensitive
@@ -100,12 +103,19 @@ FracSkyArea     0.84 # fraction of sky area (*)
 SensCurve       SURVEYprop/SensCURVES/XMM_SLEW_AvE_Sens_Ehard_Esoft.txt # path to sensitivity curve
 # (*): assuming no overlaps, nOBS x FoV should be the same as FracSkyArea, so you can decide which of the 2 parameter to fill (more details on the reference paper Vinciguerra et al 2018)
 ```
+
 *LightCurves*<br>
 This directory should contain the light curve models of interest. Specifically it should contains sub-directories indicating the name of the relative model. According to the complexity of the considered model more sub-directories can be present, to allow the use of different sub-cases. If you add your own model and still want to create the input file with *makeINFILE.py*, you should modify the appropriate section in *makeINFILE.py*. 
-The final data that should be present are 2 txt files: (i)
-*zDATA_file*<br>
-This directory should contain 
-Alternatively you can download the entire *INPUTS* directory from the git.
+The final data that should be present are 2 txt files: (i) a file containing a single column, where is reported the average of the energy bins at which the light curves are avaialble; (ii) a file containing the light curves: a column for the LC times and a column for each energy bin. The # of columns -1 (the column correspondent to the times) \[s] of file (ii) should be = to the # of rough of file (i)), one row for each time step at which the emission \[erg/s] is available.
+
+*z_CV_TABLES*<br>
+This directory should contain txt files which you intend to use for integrating over cosmological distances. These file should have 3 columns:
+- z: redshifts
+- dV: step in comuving volume (V(z_i) - V(z_{i-1})) \[cm^3]
+- V: volume contained at z \[cm^3]
+
+
+You can download the entire *INPUTS* directory from the git.
 
 ```
 cd
