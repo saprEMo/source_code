@@ -129,7 +129,7 @@ To build the *input file* and *input dir* from the data, download the file *make
 cd
 mv Downloads/runTOOL.py $saprEMo_PATH/saprEMo/RUN/.
 mv Downloads/functions.py $saprEMo_PATH/saprEMo/RUN/LIBRARY/.
-mv Downloads/OBSERVED_DURATIONS_LUMINOSITIESmax.py $saprEMo_PATH/saprEMo/RUN/.
+mv Downloads/OBSERVED_D_Lmax.py $saprEMo_PATH/saprEMo/RUN/.
 mv Downloads/makeINFILE.py $saprEMo_PATH/saprEMo/RUN/.
 cd $saprEMo_PATH/saprEMo/RUN/
 python makeINFILE.py name_run # substitute "name_run" with the name you like
@@ -145,7 +145,7 @@ mkdir INJ_FILES TEMP LIBRARY OUTPUTS
 cd 
 mv Downloads/runTOOL.py $saprEMo_PATH/saprEMo_RUN/.
 mv Downloads/functions.py $saprEMo_PATH/saprEMo_RUN/LIBRARY/.
-mv Downloads/OBSERVED_DURATIONS_LUMINOSITIESmax.py $saprEMo_PATH/saprEMo_RUN/.
+mv Downloads/OBSERVED_D_Lmax.py $saprEMo_PATH/saprEMo_RUN/.
 cd $saprEMo_PATH/saprEMo_RUN
 ```
 ### RUNNING
@@ -177,9 +177,9 @@ Now finally run:
 ```
 python runTOOL.py name_run # name_run correspondent to the name of the input file
 ```
-If you are interested in producing also graphs of distributions of event durations and maximum of luminosities, check to have the file "OBSERVED_DURATIONS_LUMINOSITIESmax.py" and run the last output line printed running "runTOOL.py"
+If you are interested in producing also graphs of distributions of event durations and maximum of luminosities, check to have the file "OBSERVED_D_Lmax.py" and run the last output line printed running "runTOOL.py"
 ```
-python OBSERVED_DURATIONS_LUMINOSITIESmax.py  [--] # [--]: path to output sub-directory, path to DURATIONS_z.txt, path to LC_times.txt, path to dt_vis_index_zmin.txt, assumed exposure time distribution, average exposure time, standard deviation of of exposure times
+python OBSERVED_D_Lmax.py  [--] # [--]: path to output sub-directory, path to DURATIONS_z.txt, path to LC_times.txt, path to dt_vis_index_zmin.txt, assumed exposure time distribution, average exposure time, standard deviation of of exposure times
 
 ```
 
