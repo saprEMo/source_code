@@ -185,7 +185,8 @@ If you are interested in producing also graphs of distributions of event duratio
 python OBSERVED_D_Lmax.py  [--] # [--]: path to output sub-directory, path to DURATIONS_z.txt, path to LC_times.txt, path to dt_vis_index_zmin.txt, assumed exposure time distribution, average exposure time, standard deviation of of exposure times
 
 ```
-
+### NOTES ###
+If while running you encounter this issue ``` ! LaTeX Error: File `type1cm.sty' not found.```, means that you need to install other packages, for mac run ```sudo tlmgr install type1cm ```.
 ## Contributing
 
 Please contact the leading author at saprEMo.tool@gmail.com or serena.vinciguerra89@gmail.com.
