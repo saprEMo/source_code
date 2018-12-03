@@ -70,7 +70,7 @@ We only tested the Galactic absorption. In *MW*, there can be 2 further sub-dire
 - 1st: center of the energy bin [keV];
 - 2nd: the trasmission coefficient. <br>
 
-Alternatively the "makeINFILE.py" can create the same file for us given the Hydrogen Column Density, NH and cross sections. In the latter case, files (fit format) containing maps of Galactic of NH should be present in the directory *Absrption/MW/NH*. The uploaded files 'lab.fit'	and 'labh.fit', contain these map. The first contain measured data, the second windowed, more details can be found in [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K).<br>
+Alternatively the "makeINFILE.py" can create the same file for us given the Hydrogen Column Density, NH and cross sections. In the latter case, files (fit format) containing maps of Galactic of NH should be present in the directory *Absrption/MW/NH*. These maps are for example contained in the files 'lab.fit'	and 'labh.fit', which you can find in the online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K).<br>
 
 ##### RATEmodels
 This directory should contain the rate models of interest, if data are necessary to build Rate(z) (if analytic formulas already implemented are used, this is not necessary). Specifically it should contains sub-directories indicating the name of the relative model. According to the complexity of the considered model more sub-directories can be present, to allow the use of different sub-cases. If you add your own model and still want to create the input file with *makeINFILE.py*, you should modify the appropriate section in *makeINFILE.py*. 
@@ -115,13 +115,16 @@ This directory should contain txt files which you intend to use for integrating 
 - V: volume contained at z \[cm^3]
 
 
-You can download the entire *INPUTS* directory from the git.
+You can download the entire *INPUTS* directory from the git ("INPUTS.zip").
 
 ```
 cd
-mv Downloads/INPUTS $saprEMo_PATH/.
-
+mv Downloads/INPUTS.zip $saprEMo_PATH/.
+cd $saprEMo_PATH
+unzip INPUTS.zip # to extract from the compressed file
 ```
+**NB:** the compressed "INPUTS" directory available from the git ("INPUTS.zip") does not contain the $N_H$ data used for calculating the transmission coefficients. The adopted 'lab.fit'	and 'labh.fit' file can be download from online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K); to be used running the *makeINFILE.py*, they should be saved in ```$saprEMo_PATH/INPUTS/Absorption/GW/NH/.```.
+
 #### RUNNING makeINFILE.py
 To build the *input file* and *input dir* from the data, download the file *makeINFILE.py*, move it to the *RUN* directory, run it and follow the instructions.
 
