@@ -123,8 +123,11 @@ You can download the entire *INPUTS* directory from the git ("INPUTS.zip").
 
 ```
 cd
-mv Downloads/INPUTS.zip $saprEMo_PATH/.
+mv Downloads/INPUTS* $saprEMo_PATH/.
 cd $saprEMo_PATH
+```
+If the file is still compressed, run:
+```
 unzip INPUTS.zip # to extract from the compressed file
 ```
 
