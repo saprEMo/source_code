@@ -135,7 +135,7 @@ unzip INPUTS.zip # to extract from the compressed file
 
 #### RUNNING makeINFILE.py
 To run "makeINFILE.py", and successively the main files "makeINFILE.py " and "OBSERVED_D_Lmax.py", download these files and move them in the *RUN* directory. Download the "functions.py" file and move it to the *RUN/LIBRARY* directory.<br>
-To downlad single files from the repository, click on them, then click-right on the bottom "Raw" on the top right and select "".
+To downlad single files from the repository, click on them, then click-right on the bottom "Raw" on the top right and select "Download Linked File As".<br>
 If you saved the file in the Download directory, run:
 ```
 cd
