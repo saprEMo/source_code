@@ -69,7 +69,7 @@ This directory should contain 2 sub-directories *MW* and *HOST_GAL*, the first f
 We only tested the Galactic absorption. In *MW*, there can be 2 further sub-directories *FILES* and *NH*. In the directorory *FILES*, add directly txt files with 2 columns: 
 - 1st: center of the energy bin [keV];
 - 2nd: the trasmission coefficient. <br>
-
+You can select files in this directory running "makeINFILE.py", by choosing, at the appropriate moment, the option: "absorption from data", corresponding to entry the number 1.<br>
 Alternatively the "makeINFILE.py" can create the same file for us given the Hydrogen Column Density, NH and cross sections. In the latter case, files (fit format) containing maps of Galactic of NH should be present in the directory *Absrption/MW/NH*. These maps are for example contained in the files 'lab.fit'	and 'labh.fit', which you can find in the online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K).<br>
 
 ##### RATEmodels
@@ -182,10 +182,15 @@ python runTOOL.py name_run # name_run correspondent to the name of the input fil
 ```
 If you are interested in producing also graphs of distributions of event durations and maximum of luminosities, check to have the file "OBSERVED_D_Lmax.py" and run the last output line printed running "runTOOL.py"
 ```
-python OBSERVED_D_Lmax.py  [--] # [--]: path to output sub-directory, path to DURATIONS_z.txt, path to LC_times.txt, path to dt_vis_index_zmin.txt, assumed exposure time distribution, average exposure time, standard deviation of of exposure times
+python OBSERVED_D_Lmax.py  [--] # [--]: path to output sub-directory, path to DURATIONS_z.txt, path to LC_times.txt, path to dt_vis_index_zmin.txt, assumed exposure time distribution, average exposure time, standard deviation of exposure times, input file path.
 
 ```
-### NOTES ###
+### OUTPUTS
+Running "runTOOL.py" will result in the creation of *OUTPUTS/run_name* directory.
+Inside such directory, after running, you will find an image, pdf-format, representing $dN/dz$ as a function of the redshift $z$. You will also find the data used saved in 2 txt ("dNdzPeaks.txt" and "DNdzTails.txt" respectively for peak and tail contributions). An additional txt will be generated, called "results.txt", where are saved the number of expected detactions for tails and peaks ("tails zmin" and "tails zmax" represent the number of tails if as reference redshift in each bin the lower/upper limit of redshift is considered). In the directory *OUTPUTS/run_name/txt4ANALYSIS/* are saved txt used when running the script "OBSERVED_D_Lmax.py". <br>
+Running "OBSERVED_D_Lmax.py" will result in the creation of *OUTPUTS/run_name/DURATION_DISTRIB* directory. In it you will find 2 images, pdf-format, representing $dN/dlog F$ as a function of maximum flux $F$ and $dN/dlog D$ as a function of the observed duration $D$. The same data are also saved in 2 txt files, respectively "RESULTS_FLUX_ZEFF.txt" and "RESULTS_DURATIONS_ZEFF.txt". Flux is expressed in $[erg s^{-1} cm^{-2}]$, duration in $[s]$.
+
+### NOTES 
 If while running you encounter this issue ``` ! LaTeX Error: File `type1cm.sty' not found.```, means that you need to install other packages, for mac run ```sudo tlmgr install type1cm ```.
 ## Contributing
 
