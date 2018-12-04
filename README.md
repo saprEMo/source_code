@@ -42,7 +42,7 @@ You can create both of them using the file "makeINFILE.py".
 
 ### BUILDING ENVIRONMENT
 ```
-saprEMo_PATH="/your_PATH" # change "your_PATH" with the path where you want to run saprEMo
+saprEMo_PATH="your_PATH" # change "your_PATH" with the path where you want to run saprEMo
 cd $saprEMo_PATH
 mkdir saprEMo
 cd saprEMo
@@ -73,7 +73,7 @@ We only tested the Galactic absorption. In *MW*, there can be 2 further sub-dire
 - 2nd: the trasmission coefficient. <br>
 
 You can select files in this directory running "makeINFILE.py", by choosing, at the appropriate moment, the option: "absorption from data", corresponding to entry the number 1.<br>
-Alternatively the "makeINFILE.py" can create the same file for us given the Hydrogen Column Density, NH and cross sections. In the latter case, files (fit format) containing maps of Galactic of NH should be present in the directory *Absrption/MW/NH*. These maps are for example contained in the files 'lab.fit'	and 'labh.fit', which you can find in the online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K).<br>
+Alternatively the "makeINFILE.py" can create the same file for us given the Hydrogen Column Density, <a href="https://www.codecogs.com/eqnedit.php?latex=N_H" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N_H" title="N_H" /></a>  and cross sections. In the latter case, files (fit format) containing maps of Galactic of <a href="https://www.codecogs.com/eqnedit.php?latex=N_H" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N_H" title="N_H" /></a>  should be present in the directory *Absrption/MW/NH*. These maps are for example contained in the files 'lab.fit'	and 'labh.fit', which you can find in the online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K).<br>
 
 ##### RATEmodels
 This directory should contain the rate models of interest, if data are necessary to build Rate(z) (if analytic formulas already implemented are used, this is not necessary). Specifically it should contains sub-directories indicating the name of the relative model. According to the complexity of the considered model more sub-directories can be present, to allow the use of different sub-cases. If you add your own model and still want to create the input file with *makeINFILE.py*, you should modify the appropriate section in *makeINFILE.py*. 
