@@ -58,7 +58,7 @@ cd INPUTS
 ```
 if you want to add your own input data and still be able to run "makeINFILE.py", make sure to have the following structure:
 ```
-mkdir Absorption	RATEmodels	SURVEYprop LightCurves #1 directory for each input
+mkdir Absorption  RATEmodels  SURVEYprop LightCurves #1 directory for each input
 mkdir z_CV_TABLES # tables redshift z - Comoving volume [cm^{3}] - having premade tables speed up the analysis
 mkdir zDATA_file # put here non uniform pre-made z steps (e.g. from rate models)
 cd ..
