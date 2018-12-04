@@ -127,15 +127,6 @@ mv Downloads/INPUTS.zip $saprEMo_PATH/.
 cd $saprEMo_PATH
 unzip INPUTS.zip # to extract from the compressed file
 ```
-##### IMPORTANT 
-If you use data stored in the "INPUTS.zip" file, you should cite the relative papers. In particular:
-- if you use data on light curves, cite *Siegel&Ciolfi 2016b*;
-- if you use data on rate, Dominik model, cite *Dominik et al 2013*;
-- if you use data on rate, Ghirlanda mode, cite *Ghirlanda et al 2016*;
-- if you use data concerning XMM-Newton -slew survey, cite *Saxton et al 2008*;
-- if you use data concerning XMM-Newton -serendipitus (here named "Pointed Observations") survey, cite *Rosen et al 2016*;
-- if you use data concerning the Chandra survey, cite *Luo et al 2017* and *Lehmer et al 2005*, Chandra new class of transient *Bauer et al 2017*;
-- if you use data concerning THESEUS, cite *Amati et al 2016*.<br>
 
 **NB:** The compressed "INPUTS" directory available from the git ("INPUTS.zip") does not contain the <a href="https://www.codecogs.com/eqnedit.php?latex=N_H" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N_H" title="N_H" /></a> data used for calculating the transmission coefficients. The adopted 'lab.fit'	and 'labh.fit' file can be download from online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K); to be used running the *makeINFILE.py*, they should be saved in ```$saprEMo_PATH/INPUTS/Absorption/GW/NH/.```.<br>
 
@@ -213,6 +204,16 @@ The number of rows is equal to the number of z bins multiplied the ```Ntrials```
 ### EXAMPLE
 In the compressed directory *EXAMPLE.zip*, you find an example of *RUN* directory. It contains all the necessary structure and files to "runTOOL.py" and "OBSERVED_D_Lmax.py" in the specific case described by the input file *INJ_FILES/EXAMPLE_SLEW_ABS_RATEconst.txt* (brief explanation in *INJ_FILES/EXAMPLE_SLEW_ABS_RATEconst_SetUp.txt*). 
 In the *OUTPUTS* directory you find the output files for this specific test case.
+
+### IMPORTANT 
+If you use data stored in the "INPUTS.zip" file, you should cite the relative papers. In particular:
+- if you use data on light curves, cite *Siegel&Ciolfi 2016b*;
+- if you use data on rate, Dominik model, cite *Dominik et al 2013*;
+- if you use data on rate, Ghirlanda mode, cite *Ghirlanda et al 2016*;
+- if you use data concerning XMM-Newton -slew survey, cite *Saxton et al 2008*;
+- if you use data concerning XMM-Newton -serendipitus (here named "Pointed Observations") survey, cite *Rosen et al 2016*;
+- if you use data concerning the Chandra survey, cite *Luo et al 2017* and *Lehmer et al 2005*, Chandra new class of transient *Bauer et al 2017*;
+- if you use data concerning THESEUS, cite *Amati et al 2016*.<br>
 
 ### NOTES 
 If while running you encounter this issue ``` ! LaTeX Error: File `type1cm.sty' not found.```, means that you need to install other packages, for mac run ```sudo tlmgr install type1cm ```.
