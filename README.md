@@ -9,7 +9,7 @@ Contacts:<br>
 *saprEMo.tool@gmail.com*<br>
 *serena.vinciguerra@aei.mpg.de*
 
-![Alt text](../saprEMo.github.io/saprEMo_logo.png)
+![Alt text](saprEMo_logo.png)
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
