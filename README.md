@@ -84,9 +84,9 @@ This directory should contain all the relevant information of the survey of inte
 In particular should contain a sub-directory *SensCURVES*, where txt files on the survey sensitivity should be found.
 This txt files should contain 4 columns:
 - average energy bin, on which is based the flux limit of the second coulumn [keV]
-- sensity in terms of flux limit [erg/s/cm^2]
-- lower limit of the energy bin [keV]
-- upper limit of the energy bin [keV]<br>
+- sensity in terms of flux limit <a href="https://www.codecogs.com/eqnedit.php?latex=[erg~s^{-1}cm^{-2}]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?[erg~s^{-1}cm^{-2}]" title="[erg~s^{-1}cm^{-2}]" /></a>
+- lower limit of the energy bin <a href="https://www.codecogs.com/eqnedit.php?latex=[keV]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?[keV]" title="[keV]" /></a>
+- upper limit of the energy bin <a href="https://www.codecogs.com/eqnedit.php?latex=[keV]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?[keV]" title="[keV]" /></a><br>
 
 Directly in the *SURVEYprop* directory, there should be a txt file for each survey of interest, containing other general info. 
 In particular these files should contain 3 columns:
@@ -110,13 +110,13 @@ In the "INPUTS.zip" file, you will see that in this directory there is also an a
 
 ##### LightCurves
 This directory should contain the light curve models of interest. Specifically it should contains sub-directories indicating the name of the relative model. According to the complexity of the considered model more sub-directories can be present, to allow the use of different sub-cases. If you add your own model and still want to create the input file with *makeINFILE.py*, you should modify the appropriate section in *makeINFILE.py*. 
-The final data that should be present are 2 txt files: (i) a file containing a single column, where is reported the average of the energy bins at which the light curves are avaialble; (ii) a file containing the light curves: a column for the LC times and a column for each energy bin. The # of columns -1 (the column correspondent to the times) \[s] of file (ii) should be = to the # of rough of file (i)), one row for each time step at which the emission \[erg/s] is available.
+The final data that should be present are 2 txt files: (i) a file containing a single column, where is reported the average of the energy bins at which the light curves are avaialble; (ii) a file containing the light curves: a column for the LC times and a column for each energy bin. The # of columns -1 (the column correspondent to the times) <a href="https://www.codecogs.com/eqnedit.php?latex=[s]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?[s]" title="[s]" /></a> of file (ii) should be = to the # of rough of file (i)), one row for each time step at which the emission \<a href="https://www.codecogs.com/eqnedit.php?latex=[erg/s]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?[erg/s]" title="[erg/s]" /></a> is available.
 
 ##### z_CV_TABLES
 This directory should contain txt files which you intend to use for integrating over cosmological distances. These file should have 3 columns:
 - z: redshifts
-- dV: step in comuving volume (V(z_i) - V(z_{i-1})) \[cm^3]
-- V: volume contained at z \[cm^3]
+- dV: step in comuving volume <a href="https://www.codecogs.com/eqnedit.php?latex=(V(z_i)&space;-&space;V(z_{i-1}))~[cm^3]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?(V(z_i)&space;-&space;V(z_{i-1}))~[cm^3]" title="(V(z_i) - V(z_{i-1}))~[cm^3]" /></a>
+- V: volume contained at z <a href="https://www.codecogs.com/eqnedit.php?latex=[cm^3]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?[cm^3]" title="[cm^3]" /></a>
 
 
 You can download the entire *INPUTS* directory from the git ("INPUTS.zip").
@@ -137,7 +137,7 @@ If you use data stored in the "INPUTS.zip" file, you should cite the relative pa
 - if you use data concerning the Chandra survey, cite *Luo et al 2017* and *Lehmer et al 2005*, Chandra new class of transient *Bauer et al 2017*;
 - if you use data concerning THESEUS, cite *Amati et al 2016*.<br>
 
-**NB:** The compressed "INPUTS" directory available from the git ("INPUTS.zip") does not contain the $N_H$ data used for calculating the transmission coefficients. The adopted 'lab.fit'	and 'labh.fit' file can be download from online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K); to be used running the *makeINFILE.py*, they should be saved in ```$saprEMo_PATH/INPUTS/Absorption/GW/NH/.```.<br>
+**NB:** The compressed "INPUTS" directory available from the git ("INPUTS.zip") does not contain the <a href="https://www.codecogs.com/eqnedit.php?latex=N_H" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N_H" title="N_H" /></a> data used for calculating the transmission coefficients. The adopted 'lab.fit'	and 'labh.fit' file can be download from online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K); to be used running the *makeINFILE.py*, they should be saved in ```$saprEMo_PATH/INPUTS/Absorption/GW/NH/.```.<br>
 
 #### RUNNING makeINFILE.py
 To build the *input file* and *input dir* from the data, download the file *makeINFILE.py*, move it to the *RUN* directory, run it and follow the instructions.
@@ -201,12 +201,12 @@ python OBSERVED_D_Lmax.py  [--] # [--]: path to output sub-directory, path to DU
 ```
 ### OUTPUTS
 Running "runTOOL.py" will result in the creation of *OUTPUTS/run_name* directory.<br>
-Inside such directory, after running, you will find an image, pdf-format, representing $dN/dz$ as a function of the redshift $z$ (as in fig. 5 of the [reference paper](https://arxiv.org/pdf/1809.08641.pdf)). You will also find the data used saved in 2 txt, "dNdzPeaks.txt" and "DNdzTails.txt" respectively for peak and tail contributions; both of them consist in 2 columns: 1st z and 2nd $dN/dz$. An additional txt will be generated, called "results.txt", where are saved the number of expected detactions for tails and peaks ("tails zmin" and "tails zmax" represent the number of tails if as reference redshift in each bin the lower/upper limit of redshift is considered). In the directory *OUTPUTS/run_name/txt4ANALYSIS/* are saved txt used when running the script "OBSERVED_D_Lmax.py". <br>
-Running "OBSERVED_D_Lmax.py" will result in the creation of *OUTPUTS/run_name/DURATION_DISTRIB* directory. In it you will find 2 images, pdf-format, representing $dN/dlog F$, as a function of maximum flux $F$ and $dN/dlog D$, as a function of the observed duration $D$ (as in fig. 5 of the [reference paper](https://arxiv.org/pdf/1809.08641.pdf)). The same data are also saved in 2 txt files, respectively "RESULTS_FLUX_ZEFF.txt" and "RESULTS_DURATIONS_ZEFF.txt". Flux is expressed in $[erg s^{-1} cm^{-2}]$, duration in $[s]$. In each file there are 4 coulumns:
-1. simulated quantities, durations $D$ or fluxes $F$, of peak contribution;
-2. weight to assign to each of them ($dN_p/dlog(D/F)$);
+Inside such directory, after running, you will find an image, pdf-format, representing dN/dz as a function of the redshift $z$ (as in fig. 5 of the [reference paper](https://arxiv.org/pdf/1809.08641.pdf)). You will also find the data used saved in 2 txt, "dNdzPeaks.txt" and "DNdzTails.txt" respectively for peak and tail contributions; both of them consist in 2 columns: 1st z and 2nd dN/dz. An additional txt will be generated, called "results.txt", where are saved the number of expected detactions for tails and peaks ("tails zmin" and "tails zmax" represent the number of tails if as reference redshift in each bin the lower/upper limit of redshift is considered). In the directory *OUTPUTS/run_name/txt4ANALYSIS/* are saved txt used when running the script "OBSERVED_D_Lmax.py". <br>
+Running "OBSERVED_D_Lmax.py" will result in the creation of *OUTPUTS/run_name/DURATION_DISTRIB* directory. In it you will find 2 images, pdf-format, representing dN/dlog(F), as a function of maximum flux F and dN/dlog(D), as a function of the observed duration $D$ (as in fig. 5 of the [reference paper](https://arxiv.org/pdf/1809.08641.pdf)). The same data are also saved in 2 txt files, respectively "RESULTS_FLUX_ZEFF.txt" and "RESULTS_DURATIONS_ZEFF.txt". Flux is expressed in <a href="https://www.codecogs.com/eqnedit.php?latex=[erg~s^{-1}&space;cm^{-2}]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?[erg~s^{-1}&space;cm^{-2}]" title="[erg~s^{-1} cm^{-2}]" /></a>, duration in <a href="https://www.codecogs.com/eqnedit.php?latex=[s]" target="_blank"><img src="https://latex.codecogs.com/gif.latex?[s]" title="[s]" /></a>. In each file there are 4 coulumns:
+1. simulated quantities, durations D or fluxes F, of peak contribution;
+2. weight to assign to each of them (<a href="https://www.codecogs.com/eqnedit.php?latex=dN_p/dlog(D|F)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?dN_p/dlog(D|F)" title="dN_p/dlog(D|F)" /></a>);
 3. simulated quantities (durations/fluxes) of tails contribution;
-4. weight to assign to each of them ($dN_t/dlog(D/F)$).
+4. weight to assign to each of them (<a href="https://www.codecogs.com/eqnedit.php?latex=dN_t/dlog(D|F)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?dN_t/dlog(D|F)" title="dN_t/dlog(D|F)" /></a>).
 
 The number of rows is equal to the number of z bins multiplied the ```Ntrials```, variable defined in "OBSERVED_D_Lmax.py" (default ```Ntrials = 200```).
 
