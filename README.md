@@ -209,7 +209,7 @@ In the *OUTPUTS* directory you find the output files for this specific test case
 If you use data stored in the "INPUTS.zip" file, you should cite the relative papers. In particular:
 - if you use data on light curves, cite [Siegel&Ciolfi 2016b](http://adsabs.harvard.edu/abs/2016ApJ...819...15S);
 - if you use data on rate, Dominik model, cite [Dominik et al 2013](http://adsabs.harvard.edu/abs/2013ApJ...779...72D);
-- if you use data on rate, Ghirlanda mode, cite [Ghirlanda et al 2016](http://adsabs.harvard.edu/abs/2018arXiv1808.00469);
+- if you use data on rate, Ghirlanda mode, cite [Ghirlanda et al 2016](http://adsabs.harvard.edu/abs/2016A%26A...594A..84G);
 - if you use data concerning XMM-Newton -slew survey, cite [Saxton et al 2008](http://adsabs.harvard.edu/abs/2008A%26A...480..611S);
 - if you use data concerning XMM-Newton -serendipitus (here named "Pointed Observations") survey, cite [Rosen et al 2016](http://adsabs.harvard.edu/abs/2016A%26A...590A...1R);
 - if you use data concerning the Chandra survey, cite [Luo et al 2017](http://adsabs.harvard.edu/abs/2017ApJS..228....2L) and [Lehmer et al 2005](http://adsabs.harvard.edu/abs/2005ApJS..161...21L), Chandra new class of transient [Bauer et al 2017](http://adsabs.harvard.edu/abs/2017MNRAS.467.4841B);
