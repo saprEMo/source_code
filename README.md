@@ -197,7 +197,7 @@ Running "OBSERVED_D_Lmax.py" will result in the creation of *OUTPUTS/run_name/DU
 The number of rows is equal to the number of z bins multiplied the ```Ntrials```, variable defined in "OBSERVED_D_Lmax.py" (default ```Ntrials = 200```).
 
 ### EXAMPLE
-In the compressed directory *EXAMPLE.zip*, you find an example of *RUN* directory. It contains all the necessary structure and file to "runTOOL.py" and "OBSERVED_D_Lmax.py" in the specific case described by the input file *INJ_FILES/EXAMPLE_SLEW_ABS_RATEconst.txt* (brief explanation in *INJ_FILES/EXAMPLE_SLEW_ABS_RATEconst_SetUp.txt*). 
+In the compressed directory *EXAMPLE.zip*, you find an example of *RUN* directory. It contains all the necessary structure and files to "runTOOL.py" and "OBSERVED_D_Lmax.py" in the specific case described by the input file *INJ_FILES/EXAMPLE_SLEW_ABS_RATEconst.txt* (brief explanation in *INJ_FILES/EXAMPLE_SLEW_ABS_RATEconst_SetUp.txt*). 
 In the *OUTPUTS* directory you find the output files for this specific test case.
 
 ### NOTES 
