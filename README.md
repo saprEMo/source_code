@@ -76,7 +76,7 @@ Alternatively the "makeINFILE.py" can create the same file for us given the Hydr
 
 ##### RATEmodels
 This directory should contain the rate models of interest, if data are necessary to build Rate(z) (if analytic formulas already implemented are used, this is not necessary). Specifically it should contains sub-directories indicating the name of the relative model. According to the complexity of the considered model more sub-directories can be present, to allow the use of different sub-cases. If you add your own model and still want to create the input file with *makeINFILE.py*, you should modify the appropriate section in *makeINFILE.py*. 
-The implemented cases, based on Dominik et al 2013 and Ghirlanda et al 2016, follow the instructions appearing while running ```python makeINFILE.py```.
+To apply the implemented cases, based on Dominik et al 2013 and Ghirlanda et al 2016, follow the instructions appearing while running ```python makeINFILE.py```.
 
 ##### SURVEYprop
 This directory should contain all the relevant information of the survey of interest. 
@@ -87,7 +87,7 @@ This txt files should contain 4 columns:
 - lower limit of the energy bin [keV]
 - upper limit of the energy bin [keV]<br>
 
-Directly in the *SURVEYprop* dir, there should be a txt file for each survey of interest, containing other general info. 
+Directly in the *SURVEYprop* directory, there should be a txt file for each survey of interest, containing other general info. 
 In particular these files should contain 3 columns:
 - 1st: labels
 - 2nd: quantity #
@@ -105,6 +105,7 @@ FracSkyArea     0.84 # fraction of sky area (*)
 SensCurve       SURVEYprop/SensCURVES/XMM_SLEW_AvE_Sens_Ehard_Esoft.txt # path to sensitivity curve
 # (*): assuming no overlaps, nOBS x FoV should be the same as FracSkyArea, so you can decide which of the 2 parameter to fill (more details on the reference paper Vinciguerra et al 2018)
 ```
+In the "INPUTS.zip" file, you will see that in this directory there is also an addition sub-directory: *SensCURVES/OBSERVATIONSloc*. This is not necessary. Here we stored files containing information on the sky-location of observation belonging to particular present-surveys. The same information can be stored in any other place.
 
 ##### LightCurves
 This directory should contain the light curve models of interest. Specifically it should contains sub-directories indicating the name of the relative model. According to the complexity of the considered model more sub-directories can be present, to allow the use of different sub-cases. If you add your own model and still want to create the input file with *makeINFILE.py*, you should modify the appropriate section in *makeINFILE.py*. 
@@ -125,7 +126,18 @@ mv Downloads/INPUTS.zip $saprEMo_PATH/.
 cd $saprEMo_PATH
 unzip INPUTS.zip # to extract from the compressed file
 ```
-**NB:** the compressed "INPUTS" directory available from the git ("INPUTS.zip") does not contain the $N_H$ data used for calculating the transmission coefficients. The adopted 'lab.fit'	and 'labh.fit' file can be download from online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K); to be used running the *makeINFILE.py*, they should be saved in ```$saprEMo_PATH/INPUTS/Absorption/GW/NH/.```.
+##### IMPORTANT 
+If you use data stored in the "INPUTS.zip" file, you should cite the relative papers. In particular:
+- if you use data on light curves, cite *Siegel&Ciolfi 2016b*;
+- if you use data on rate, Dominik model, cite *Dominik et al 2013*;
+- if you use data on rate, Ghirlanda mode, cite *Ghirlanda et al 2016*;
+- if you use data concerning XMM-Newton -slew survey, cite *Saxton et al 2008*;
+- if you use data concerning XMM-Newton -serendipitus (here named "Pointed Observations") survey, cite *Rosen et al 2016*;
+- if you use data concerning the Chandra transient and survey, cite ** and **;
+- if you use data concerning THESEUS, cite **.
+
+**NB1:** the compressed "INPUTS" directory available from the git ("INPUTS.zip") does not contain the $N_H$ data used for calculating the transmission coefficients. The adopted 'lab.fit'	and 'labh.fit' file can be download from online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K); to be used running the *makeINFILE.py*, they should be saved in ```$saprEMo_PATH/INPUTS/Absorption/GW/NH/.```.<br>
+**NB2:** the inputs stored in the file "INPUTS.zip" concern only the cases (surveys, rate models and light curves) tested for the paper.
 
 #### RUNNING makeINFILE.py
 To build the *input file* and *input dir* from the data, download the file *makeINFILE.py*, move it to the *RUN* directory, run it and follow the instructions.
