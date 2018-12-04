@@ -3,7 +3,7 @@
 Here we present *saprEMo*.
 *saprEMo* is a Python algorithm designed to predict the number of electromagnetic signals characterised by a specific light curve and spectrum, expected in a particular sky survey.  
 By looking at past surveys, saprEMo allows us to constrain models of electromagnetic emission or event rates. Applying saprEMo to proposed astronomical missions/observing campaigns provides a perspective on their scientific impact and tests the effect of adopting different observational strategies. <br>
-More details can be found in the relative paper at [arXiv:1809.08641](https://arxiv.org/pdf/1809.08641.pdf).
+More details can be found at [arXiv:1809.08641](https://arxiv.org/pdf/1809.08641.pdf).
 
 Contacts:<br>
 *saprEMo.tool@gmail.com*<br>
@@ -28,6 +28,7 @@ required *other* packages:<br>
  
 To install packages with pip run the following ```pip install name_package```<br>
 For further information click [here](https://packaging.python.org/tutorials/installing-packages/)
+
 ## Abbreviations
 z : redshift<br>
 LC : Light Curve<br>
@@ -35,8 +36,8 @@ BNS : binary neutron stars
 
 ## Instructions
 
-A step by step series of examples that tell you how to get a development env running.<br>
-The main running file "runTOOL.py" requires an input set file "*INJ_FILES/name_run.txt*" and the input data stored in the directory "*TEMP/name_run/*".
+The core part of the code consists in 3 python scripts: "makeINFILE.py", "runTOOL.py" and "OBSERVED_D_Lmax.py".<br>
+The main running file "runTOOL.py" requires an input set-file *INJ_FILES/name_run.txt* and the input data stored in the directory "*TEMP/name_run/*".
 You can create both of them using the file "makeINFILE.py".
 
 ### BUILDING ENVIRONMENT
@@ -66,7 +67,7 @@ cd ..
 
 #### WHAT SHOULD BE IN ALL THESE DIRECTORIES?
 ##### Absorption
-This directory should contain 2 sub-directories *MW* and *HOST_GAL*, the first for collecting information on the absorption in the Milky Way, the second for the absorption in the host galaxy. 
+This directory should contain 2 sub-directories *MW* and *HOST_GAL*, for collecting information concerning respectively absorption in the Milky Way and absorption in the host galaxy. 
 We only tested the Galactic absorption. In *MW*, there can be 2 further sub-directories *FILES* and *NH*. In the directorory *FILES*, add directly txt files with 2 columns: 
 - 1st: center of the energy bin [keV];
 - 2nd: the trasmission coefficient. <br>
