@@ -134,7 +134,7 @@ unzip INPUTS.zip # to extract from the compressed file
 **NB:** The compressed "INPUTS" directory available from the git ("INPUTS.zip") does not contain the <a href="https://www.codecogs.com/eqnedit.php?latex=N_H" target="_blank"><img src="https://latex.codecogs.com/gif.latex?N_H" title="N_H" /></a> data used for calculating the transmission coefficients. The adopted 'lab.fit'	and 'labh.fit' file can be download from online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K); to be used running the *makeINFILE.py*, they should be saved in ```$saprEMo_PATH/INPUTS/Absorption/GW/NH/.```.<br>
 
 #### RUNNING makeINFILE.py
-To run "makeINFILE.py", and successively the main files "makeINFILE.py " and "OBSERVED_D_Lmax.py", download these files and move them in the *RUN* directory. Download the "functions.py" file and move it to the *RUN/LIBRARY* directory.<br>
+To run "makeINFILE.py", and successively the main saprEMo files "makeINFILE.py " and "OBSERVED_D_Lmax.py", download these files and move them in the *RUN* directory. Download the "functions.py" file and move it to the *RUN/LIBRARY* directory.<br>
 To downlad single files from the repository, click on them, then click-right on the bottom "Raw" on the top right and select "Download Linked File As".<br>
 If you saved the file in the Download directory, run:
 ```
@@ -153,11 +153,16 @@ python makeINFILE.py name_run # substitute "name_run" with the name you like
 ```
 #### MODIFYING INPUT FILE and DIRECTLY RUN
 ```
-saprEMo_PATH="/your_PATH" # change "your_PATH" with the path where you want to run saprEMo
+saprEMo_PATH="your_PATH" # change "your_PATH" with the path where you want to run saprEMo
 cd $saprEMo_PATH
 mkdir saprEMo_RUN
 cd saprEMo_RUN
 mkdir INJ_FILES TEMP LIBRARY OUTPUTS
+```
+To run the main saprEMo files "makeINFILE.py " and "OBSERVED_D_Lmax.py", download these files and move them in the *saprEMo_RUN* directory. Download the "functions.py" file and move it to the *saprEMo_RUN/LIBRARY* directory.<br>
+To downlad single files from the repository, click on them, then click-right on the bottom "Raw" on the top right and select "Download Linked File As".<br>
+If you saved the file in the Download directory, run:
+```
 cd 
 mv Downloads/runTOOL.py $saprEMo_PATH/saprEMo_RUN/.
 mv Downloads/functions.py $saprEMo_PATH/saprEMo_RUN/LIBRARY/.
@@ -165,7 +170,7 @@ mv Downloads/OBSERVED_D_Lmax.py $saprEMo_PATH/saprEMo_RUN/.
 cd $saprEMo_PATH/saprEMo_RUN
 ```
 ### RUNNING
-Before runnig "runTOOL.py" check that all the follwoing files exists:
+Before runnig "runTOOL.py" check that all the follwoing files exists in your running directory (*$saprEMo_PATH/saprEMo/RUN* or *$saprEMo_PATH/saprEMo_RUN*):
 
 0. the running file: 
 ```
