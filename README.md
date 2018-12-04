@@ -133,11 +133,10 @@ If you use data stored in the "INPUTS.zip" file, you should cite the relative pa
 - if you use data on rate, Ghirlanda mode, cite *Ghirlanda et al 2016*;
 - if you use data concerning XMM-Newton -slew survey, cite *Saxton et al 2008*;
 - if you use data concerning XMM-Newton -serendipitus (here named "Pointed Observations") survey, cite *Rosen et al 2016*;
-- if you use data concerning the Chandra transient and survey, cite ** and **;
-- if you use data concerning THESEUS, cite **.
+- if you use data concerning the Chandra survey, cite *Luo et al 2017* and *Lehmer et al 2005*, Chandra new class of transient *Bauer et al 2017*;
+- if you use data concerning THESEUS, cite *Amati et al 2016*.<br>
 
-**NB1:** the compressed "INPUTS" directory available from the git ("INPUTS.zip") does not contain the $N_H$ data used for calculating the transmission coefficients. The adopted 'lab.fit'	and 'labh.fit' file can be download from online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K); to be used running the *makeINFILE.py*, they should be saved in ```$saprEMo_PATH/INPUTS/Absorption/GW/NH/.```.<br>
-**NB2:** the inputs stored in the file "INPUTS.zip" concern only the cases (surveys, rate models and light curves) tested for the paper.
+**NB:** The compressed "INPUTS" directory available from the git ("INPUTS.zip") does not contain the $N_H$ data used for calculating the transmission coefficients. The adopted 'lab.fit'	and 'labh.fit' file can be download from online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K); to be used running the *makeINFILE.py*, they should be saved in ```$saprEMo_PATH/INPUTS/Absorption/GW/NH/.```.<br>
 
 #### RUNNING makeINFILE.py
 To build the *input file* and *input dir* from the data, download the file *makeINFILE.py*, move it to the *RUN* directory, run it and follow the instructions.
@@ -200,9 +199,9 @@ python OBSERVED_D_Lmax.py  [--] # [--]: path to output sub-directory, path to DU
 
 ```
 ### OUTPUTS
-Running "runTOOL.py" will result in the creation of *OUTPUTS/run_name* directory.
-Inside such directory, after running, you will find an image, pdf-format, representing $dN/dz$ as a function of the redshift $z$. You will also find the data used saved in 2 txt, "dNdzPeaks.txt" and "DNdzTails.txt" respectively for peak and tail contributions; both of them consist in 2 columns: 1st z and 2nd $dN/dz$. An additional txt will be generated, called "results.txt", where are saved the number of expected detactions for tails and peaks ("tails zmin" and "tails zmax" represent the number of tails if as reference redshift in each bin the lower/upper limit of redshift is considered). In the directory *OUTPUTS/run_name/txt4ANALYSIS/* are saved txt used when running the script "OBSERVED_D_Lmax.py". <br>
-Running "OBSERVED_D_Lmax.py" will result in the creation of *OUTPUTS/run_name/DURATION_DISTRIB* directory. In it you will find 2 images, pdf-format, representing $dN/dlog F$ as a function of maximum flux $F$ and $dN/dlog D$ as a function of the observed duration $D$. The same data are also saved in 2 txt files, respectively "RESULTS_FLUX_ZEFF.txt" and "RESULTS_DURATIONS_ZEFF.txt". Flux is expressed in $[erg s^{-1} cm^{-2}]$, duration in $[s]$. In each file there are 4 coulumns:
+Running "runTOOL.py" will result in the creation of *OUTPUTS/run_name* directory.<br>
+Inside such directory, after running, you will find an image, pdf-format, representing $dN/dz$ as a function of the redshift $z$ (as in fig. 5 of the [reference paper](https://arxiv.org/pdf/1809.08641.pdf)). You will also find the data used saved in 2 txt, "dNdzPeaks.txt" and "DNdzTails.txt" respectively for peak and tail contributions; both of them consist in 2 columns: 1st z and 2nd $dN/dz$. An additional txt will be generated, called "results.txt", where are saved the number of expected detactions for tails and peaks ("tails zmin" and "tails zmax" represent the number of tails if as reference redshift in each bin the lower/upper limit of redshift is considered). In the directory *OUTPUTS/run_name/txt4ANALYSIS/* are saved txt used when running the script "OBSERVED_D_Lmax.py". <br>
+Running "OBSERVED_D_Lmax.py" will result in the creation of *OUTPUTS/run_name/DURATION_DISTRIB* directory. In it you will find 2 images, pdf-format, representing $dN/dlog F$, as a function of maximum flux $F$ and $dN/dlog D$, as a function of the observed duration $D$ (as in fig. 5 of the [reference paper](https://arxiv.org/pdf/1809.08641.pdf)). The same data are also saved in 2 txt files, respectively "RESULTS_FLUX_ZEFF.txt" and "RESULTS_DURATIONS_ZEFF.txt". Flux is expressed in $[erg s^{-1} cm^{-2}]$, duration in $[s]$. In each file there are 4 coulumns:
 1. simulated quantities, durations $D$ or fluxes $F$, of peak contribution;
 2. weight to assign to each of them ($dN_p/dlog(D/F)$);
 3. simulated quantities (durations/fluxes) of tails contribution;
