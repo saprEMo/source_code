@@ -189,7 +189,12 @@ python OBSERVED_D_Lmax.py  [--] # [--]: path to output sub-directory, path to DU
 Running "runTOOL.py" will result in the creation of *OUTPUTS/run_name* directory.
 Inside such directory, after running, you will find an image, pdf-format, representing $dN/dz$ as a function of the redshift $z$. You will also find the data used saved in 2 txt ("dNdzPeaks.txt" and "DNdzTails.txt" respectively for peak and tail contributions). An additional txt will be generated, called "results.txt", where are saved the number of expected detactions for tails and peaks ("tails zmin" and "tails zmax" represent the number of tails if as reference redshift in each bin the lower/upper limit of redshift is considered). In the directory *OUTPUTS/run_name/txt4ANALYSIS/* are saved txt used when running the script "OBSERVED_D_Lmax.py". <br>
 Running "OBSERVED_D_Lmax.py" will result in the creation of *OUTPUTS/run_name/DURATION_DISTRIB* directory. In it you will find 2 images, pdf-format, representing $dN/dlog F$ as a function of maximum flux $F$ and $dN/dlog D$ as a function of the observed duration $D$. The same data are also saved in 2 txt files, respectively "RESULTS_FLUX_ZEFF.txt" and "RESULTS_DURATIONS_ZEFF.txt". Flux is expressed in $[erg s^{-1} cm^{-2}]$, duration in $[s]$. In each file there are 4 coulumns:
+1. simulated quantities, durations $D$ or fluxes $F$, of peak contribution;
+2. weight to assign to each of them ($dN_p/dlog(D/F)$);
+3. simulated quantities (durations/fluxes) of tails contribution;
+4. weight to assign to each of them ($dN_t/dlog(D/F)$).
 
+The number of rows is equal to the number of z bins multiplied the ```Ntrials```, variable defined in "OBSERVED_D_Lmax.py" (default ```Ntrials = 200```).
 ### NOTES 
 If while running you encounter this issue ``` ! LaTeX Error: File `type1cm.sty' not found.```, means that you need to install other packages, for mac run ```sudo tlmgr install type1cm ```.
 ## Contributing
