@@ -71,6 +71,7 @@ This directory should contain 2 sub-directories *MW* and *HOST_GAL*, for collect
 We only tested the Galactic absorption. In *MW*, there can be 2 further sub-directories *FILES* and *NH*. In the directorory *FILES*, add directly txt files with 2 columns: 
 - 1st: center of the energy bin [keV];
 - 2nd: the trasmission coefficient. <br>
+
 You can select files in this directory running "makeINFILE.py", by choosing, at the appropriate moment, the option: "absorption from data", corresponding to entry the number 1.<br>
 Alternatively the "makeINFILE.py" can create the same file for us given the Hydrogen Column Density, NH and cross sections. In the latter case, files (fit format) containing maps of Galactic of NH should be present in the directory *Absrption/MW/NH*. These maps are for example contained in the files 'lab.fit'	and 'labh.fit', which you can find in the online material of [Kalberla et al 2005](http://adsabs.harvard.edu/abs/2005A%26A...440..775K).<br>
 
